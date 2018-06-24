@@ -11,6 +11,7 @@ import E6
 import E63
 import E65
 import E69
+import E81
 import E92
 import E97
 
@@ -26,6 +27,7 @@ solutions = M.fromList
         (63, show solve63),
         (65, show solve65),
         (69, show solve69),
+        (81, show solve81),
         (92, show solve92),
         (97, show solve97)
     ]
