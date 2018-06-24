@@ -27,10 +27,8 @@ mincost pos@(x, y)
             case mCost of
                 Just cost -> return (Just cost)
                 Nothing -> do
-                    rightCost <- mincost (x+1,y)
-                    downCost <- mincost (x,y+1)
                     let thisCost = matrix `at` pos
-                    let cost = thisCost + maybeMin rightCost downCost
+                    cost <- (+) <$> (pure thisCost) <*> (maybeMin <$> mincost (x+1,y) <*> mincost (x,y+1))
                     modify' (M.insert pos cost) -- Save the min cost here
                     return (Just cost)
 
